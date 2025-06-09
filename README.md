@@ -45,6 +45,9 @@ Stories are configured in `plugins/CampfireTales/stories.yml`. They are categori
 - `uncommon` - Requires at least 2 players
 - `rare` - Requires at least 4 players
 
+## Link
+ - https://builtbybit.com/resources/lyth-campfiretales.68725/
+ - https://polymart.org/product/7942/lyth-campfiretales
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
