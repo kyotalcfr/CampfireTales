@@ -1,0 +1,180 @@
+# Lyth-CampfireTales Configuration
+
+# Party settings
+party:
+  # Minimum players for party mode
+  min_players: 5
+  # Maximum players for party mode (set to -1 for unlimited)
+  max_players: 20
+  # Special effects for party mode
+  effects:
+    enabled: true
+    # Effects will be stronger based on player count
+    strength_multiplier: 1.5
+    # List of party effects (REGENERATION, LUCK, NIGHT_VISION, CONDUIT_POWER, SPEED, JUMP, DOLPHINS_GRACE)
+    list:
+      - REGENERATION
+      - SPEED
+      - JUMP
+      - DOLPHINS_GRACE
+  # Party rewards
+  rewards:
+    # Experience points given when party starts
+    exp: 100
+    # Chance to get better stories (0.0 - 1.0)
+    story_bonus_chance: 0.3
+
+# Effect Zone settings
+effect_zone:
+  enabled: true
+  # Range of the effect zone in blocks
+  range: 20
+  # Visual effects for the zone border
+  border:
+    enabled: true
+    particle: "END_ROD"
+    particle_count: 1
+    # How often to show border particles (in ticks)
+    update_interval: 20
+  # Effects applied to players in the zone (even if not at campfire)
+  effects:
+    enabled: true
+    # List of effects for players in the zone
+    list:
+      - type: NIGHT_VISION
+        strength: 0
+      - type: FIRE_RESISTANCE
+        strength: 0
+    # Duration of effects (in seconds, -1 for infinite while in zone)
+    duration: -1
+  # Messages
+  messages:
+    enter: "§e✨ You feel the warmth of the campfire tales..."
+    exit: "§e✨ The warmth of the campfire tales fades away..."
+
+# Story settings
+stories:
+  # Time between stories (in seconds)
+  interval: 15
+  # Whether to broadcast stories to nearby players not at the campfire
+  broadcast_range: 10
+  # Chance for rare stories (0.0 - 1.0)
+  rare_story_chance: 0.3
+  # Enable sound effects when telling stories
+  sound_effects: true
+  # Sound to play (ENTITY_VILLAGER_AMBIENT, BLOCK_FIRE_AMBIENT, etc.)
+  story_sound: "BLOCK_FIRE_AMBIENT"
+  # Weekly rotation settings
+  weekly_rotation:
+    enabled: true
+    # Day of week to rotate stories (1 = Monday, 7 = Sunday)
+    rotation_day: 1
+    # Number of new stories to unlock per rotation
+    new_stories_count: 3
+
+# Campfire settings
+campfire:
+  # Detection range around campfire
+  range: 3.0
+  # Whether soul campfires are included
+  allow_soul_campfire: true
+  # Particle effects around campfire
+  particles:
+    enabled: true
+    type: "FLAME"
+    count: 5
+  # Whether to require players to be sitting (sneaking)
+  require_sneaking: false
+  # Locate command settings
+  locate:
+    # Maximum search radius in blocks
+    max_radius: 100
+    # Cooldown between uses (in seconds)
+    cooldown: 30
+    # Whether to show particle trail to nearest campfire
+    show_trail: true
+    trail_particle: "FLAME"
+
+# Buff settings
+buffs:
+  # Duration of buffs (in minutes)
+  duration: 30
+  # Base buff settings for 2-4 players
+  default:
+    strength: 0
+    effects:
+      - REGENERATION
+      - LUCK
+      - NIGHT_VISION
+      - CONDUIT_POWER
+  # Enhanced buff settings for party mode (5+ players)
+  party:
+    strength: 2
+    effects:
+      - REGENERATION
+      - SPEED
+      - JUMP
+      - DOLPHINS_GRACE
+      - LUCK
+      - NIGHT_VISION
+      - CONDUIT_POWER
+
+# Statistics settings
+statistics:
+  # Save interval in minutes
+  auto_save_interval: 5
+  # Whether to show stats in player list (tab)
+  show_in_tab: true
+  # Achievements
+  achievements:
+    enabled: true
+    broadcast: true
+    list:
+      stories_milestone:
+        - count: 10
+          reward_message: "§6🎉 You've heard your first 10 stories!"
+        - count: 50
+          reward_message: "§6🎉 You're becoming a tale collector! (50 stories)"
+        - count: 100
+          reward_message: "§6🎉 You're a master of tales! (100 stories)"
+      party_milestone:
+        - count: 5
+          reward_message: "§6🎉 You've attended 5 campfire parties!"
+        - count: 20
+          reward_message: "§6🎉 You're the life of the party! (20 parties)"
+      time_milestone:
+        - hours: 1
+          reward_message: "§6🎉 You've spent an hour at campfires!"
+        - hours: 10
+          reward_message: "§6🎉 You're a dedicated storyteller! (10 hours)"
+
+# Messages
+messages:
+  prefix: "§6[Lyth-CampfireTales]"
+  party_start: "§e🔥 A campfire party has started! Special buffs activated!"
+  party_end: "§e🔥 The campfire party has ended. Thanks for gathering!"
+  story_prefix: "§6[Tale]"
+  commands:
+    cooldown: "§cPlease wait {time} seconds before using this command again."
+    no_permission: "§cYou don't have permission to use this command!"
+    player_only: "§cThis command can only be used by players!"
+    reload_success: "§aConfiguration reloaded successfully!"
+    stats_header: "§6=== Your Campfire Tales Stats ==="
+    party_header: "§6=== Campfire Party Info ==="
+    effects_enabled: "§aEffect notifications enabled!"
+    effects_disabled: "§7Effect notifications disabled."
+    locate_none: "§cNo active campfire gatherings found nearby!"
+    locate_found: "§eNearest campfire gathering:"
+
+# Land Protection Settings
+land_protection:
+  # Whether to check land claims when using campfires
+  check_claims: true
+  # Whether to allow campfire usage in unclaimed areas
+  allow_in_wilderness: true
+  # Whether to require build permission in claims
+  require_build_permission: true
+  # Message shown when player can't use campfire in a claim
+  no_permission_message: "§cYou don't have permission to use campfires in this area!"
+  # Message shown when campfires are disabled in wilderness
+  wilderness_disabled_message: "§cCampfires can only be used in claimed areas!" 
