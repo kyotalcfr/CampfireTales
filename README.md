@@ -45,12 +45,6 @@ Stories are configured in `plugins/CampfireTales/stories.yml`. They are categori
 - `uncommon` - Requires at least 2 players
 - `rare` - Requires at least 4 players
 
-## Building from Source
-
-1. Clone the repository
-2. Run `mvn clean package`
-3. The compiled jar will be in the `target` folder
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
